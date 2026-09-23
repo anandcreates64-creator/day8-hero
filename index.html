@@ -44,22 +44,12 @@ input {
   <div style="margin-top:50px; padding:30px; background:#111; border-radius:10px;">
   <h2>About Me</h2>
   <p>I build fast custom websites without WordPress.</p>
-  <input id="email" type="email" placeholder="Enter your email" style="padding:12px 20px; border-radius:8px; width:80%; max-width:300px;">
+  <form name="leads" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="leads" />
+  <input id="email" name="email" type="email" placeholder="Enter your email" required style="padding:10px; width:80%;" />
   <br><br>
-  <button id="btn" style="background:#00ff88; color:black; border-radius:50px; padding:12px 30px;">Contact Me</button>
-</div>
-
-<script>
-  const btn = document.getElementById('btn');
-  const emailBox = document.getElementById('email');
-
-  btn.addEventListener('click', function() {
-    if(emailBox.value === "") {
-      alert("Please enter your email");
-    } else {
-      alert("Thank you! We received your email: " + emailBox.value);
-    }
-  });
-</script>
+  <button id="btn" type="submit" style="background:#00ff88; color:black; padding:10px 20px; border-radius:5px;">Submit</button>
+  </form>
+  </div>
 </body>
 </html>
