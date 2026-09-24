@@ -43,7 +43,7 @@ form.addEventListener('submit', e => {
   btn.innerText = 'Sending...';
   fetch(scriptURL, { method: 'POST', body: new FormData(form)})
     .then(() => {
-      alert("Thanks! Your massage has been sent. I'll get back to you shortly.");
+      alert("Thanks! Your message has been sent. I'll get back to you shortly.");
       form.reset();
       btn.innerText = 'Submit';
     })
