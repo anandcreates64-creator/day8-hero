@@ -6,8 +6,9 @@
 body { background-color: #0a0a0a; color: white; text-align: center; font-family: Arial, sans-serif; padding: 20px; }
 h1 { color: #00ff88; font-size: 42px; }
 p { color: #888; }
-button { background-color: #00ff88; color: black; padding: 12px 30px; border-radius: 50px; border: none; font-weight: bold; margin-top: 10px; }
-input { padding: 12px 20px; border-radius: 8px; border: none; width: 80%; max-width: 300px; margin-top: 15px; }
+button { background-color: #00ff88; color: black; padding: 12px 30px; border-radius: 50px; border: none; font-weight: bold; cursor: pointer; }
+input, textarea { padding: 12px 20px; border-radius: 8px; border: none; width: 80%; max-width: 300px; margin-top: 15px; }
+textarea { height: 80px; }
 </style>
 </head>
 <body>
@@ -20,13 +21,35 @@ input { padding: 12px 20px; border-radius: 8px; border: none; width: 80%; max-wi
 <h2>About Me</h2>
 <p>I build fast custom websites without WordPress.</p>
 
-<form name="leads" method="POST" data-netlify="true">
+<form name="leads" id="contact-form" method="POST" data-netlify="true">
 <input type="hidden" name="form-name" value="leads" />
+<input name="name" type="text" placeholder="Your Name" required />
+<br>
 <input name="email" type="email" placeholder="Enter your email" required />
+<br>
+<textarea name="message" placeholder="Your message" required></textarea>
 <br><br>
 <button type="submit">Submit</button>
 </form>
 
 </div>
+
+<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzxwVr9MROGJTJpDqW2jXESkHL3AS7EkPMmYkcIzRem60sRvWtJ1myPQ3JJ2py2chKR0w/exec';
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const btn = form.querySelector('button');
+  btn.innerText = 'Sending...';
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(() => {
+      alert("Message sent! Sheet me aa gaya ✅");
+      form.reset();
+      btn.innerText = 'Submit';
+    })
+    .catch(error => alert("Error! " + error.message));
+});
+</script>
+
 </body>
 </html>
