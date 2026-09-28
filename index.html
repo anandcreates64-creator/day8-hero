@@ -32,11 +32,11 @@ html { scroll-behavior: smooth; }
 <p>I build fast custom websites without WordPress.</p>
 
 <form id="contact-form">
-<input name="name" type="text" placeholder="Your Name" required />
+<input name="name" type="text" placeholder="Your Name" required maxlength="50" />
 <br>
-<input name="email" type="email" placeholder="Enter your email" required />
+<input name="email" type="email" placeholder="Enter your email" required maxlength="100" />
 <br>
-<textarea name="message" placeholder="Your message" required></textarea>
+<textarea name="message" placeholder="Your message" required maxlength="300"></textarea>
 <br><br>
 <button type="submit">Submit</button>
 </form>
@@ -63,13 +63,20 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   const btn = form.querySelector('button');
   btn.innerText = 'Sending...';
-  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+  
+  const formData = new FormData(form);
+  formData.append("secret", "anand2026_secure");
+
+  fetch(scriptURL, { method: 'POST', body: formData})
     .then(() => {
-      alert("Thanks! Your message has been sent. I'll get back to you shortly.");
+      alert("Thanks! Your message has been sent.");
       form.reset();
       btn.innerText = 'Submit';
     })
-    .catch(error => alert("Error! " + error.message));
+    .catch(error => {
+      alert("Error! " + error.message);
+      btn.innerText = 'Submit';
+    });
 });
 </script>
 
