@@ -30,18 +30,15 @@ html { scroll-behavior: smooth; }
 }
 @keyframes bubbleFloat {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-10px); }
   100% { transform: translateY(0px); }
 }
 .service-bubble {
-  animation: bubbleFloat 3s ease-in-out infinite;
+  animation: bubbleFloat 3s ease-in-out infinite !important;
+  will-change: transform;
 }
-.service-bubble:nth-child(2) {
-  animation-delay: 0.5s;
-}
-.service-bubble:nth-child(3) {
-  animation-delay: 1s;
-}
+.service-bubble:nth-child(2) { animation-delay: 0.4s !important; }
+.service-bubble:nth-child(3) { animation-delay: 0.8s !important; }
 .service-bubble:hover {
   animation-play-state: paused;
   transform: scale(1.03);
@@ -76,7 +73,7 @@ html { scroll-behavior: smooth; }
   
   <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; max-width: 1000px; margin: 0 auto;">
     
-    <div style="background: white; padding: 25px 20px; border-radius: 16px; flex: 1; min-width: 280px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-align: left;">
+    <div class="service-bubble" style="background: white; padding: 25px 20px; border-radius: 16px; flex: 1; min-width: 280px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-align: left;">
       <div style="font-size: 28px; margin-bottom: 12px;">⚡</div>
       <h3 style="margin-bottom: 8px; font-size: 16px; color: #111; font-weight: 700;">Fast & Modern Design</h3>
       <p style="color: #666; font-size: 14px; line-height: 1.6; margin: 0;">Delivered in 2 days. Super fast loading on mobile and desktop.</p>
