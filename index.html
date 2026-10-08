@@ -7,100 +7,72 @@
 <meta name="description" content="I build fast and simple websites for small businesses without WordPress.">
 <link href="https://api.fontshare.com/v2/css?f[]=syne@600,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 <style>
+  :root { --bg: #FAF9F6; --text: #111111; --muted: #6B6B6B; --border: #E8E8E8; --card: #FFFFFF; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0a0a0a; color: white; font-family: 'Satoshi', sans-serif; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Satoshi', sans-serif; }
   .container { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
-  
-  /* HERO - Minimal.Gallery Style */
-  .hero { text-align: left; padding: 80px 0 40px 0; }
-  .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(42px, 8vw, 72px); font-weight: 800; line-height: 0.9; color: white; letter-spacing: -2px; }
-  .hero h1 span { color: #00ff88; }
-  .hero p { color: #888; font-size: 18px; max-width: 520px; margin-top: 20px; line-height: 1.5; }
-  .hero-btn { display: inline-block; margin-top: 30px; background: #00ff88; color: black; padding: 14px 32px; border-radius: 100px; font-weight: 700; text-decoration: none; }
-
-  /* SERVICES - Bento */
-  #services { background: #f5f5f5; padding: 60px 24px; }
-  #services h2 { font-family: 'Syne', sans-serif; color: #111; font-size: 32px; }
-  .bento { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; max-width: 1100px; margin: 35px auto 0 auto; }
-  .bento-card { background: white; padding: 28px 24px; border-radius: 20px; text-align: left; border: 1px solid #eee; transition: 0.3s; }
-  .bento-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
-
-  /* PROJECTS - Upgraded Bento */
-  #projects { background: #111; border-radius: 24px; border: 1px solid #222; padding: 40px; margin-top: 60px; }
+  .hero { text-align: left; padding: 80px 0 50px 0; }
+  .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(44px, 8vw, 72px); font-weight: 800; line-height: 0.9; letter-spacing: -2.5px; color: var(--text); }
+  .hero p { color: var(--muted); font-size: 18px; max-width: 520px; margin-top: 20px; line-height: 1.6; }
+  .hero-btn { display: inline-block; margin-top: 30px; background: var(--text); color: white; padding: 14px 32px; border-radius: 100px; font-weight: 700; text-decoration: none; }
+  #projects { background: var(--card); border-radius: 24px; border: 1px solid var(--border); padding: 40px; margin-top: 60px; }
   #projects h2 { font-family: 'Syne', sans-serif; font-size: 32px; margin-bottom: 25px; }
   .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
-  .project-card { text-decoration: none; display: block; border: 1px solid #222; border-radius: 16px; padding: 24px; background: #0f0f0f; transition: 0.3s; text-align: left; }
-  .project-card:hover { border-color: #00ff88 !important; transform: translateY(-4px); background: #151515; box-shadow: 0 8px 25px rgba(0,255,136,0.15); }
-  .project-card h3 { color: #00ff88; margin-bottom: 8px; font-family: 'Syne', sans-serif; }
-  .project-card p { color: #aaa; font-size: 14px; }
-  .project-tag { display: inline-block; margin-top: 12px; font-size: 12px; color: #555; border: 1px solid #222; padding: 4px 10px; border-radius: 100px; }
-
-  /* ABOUT + FORM */
-  #about { background: white; border-radius: 24px; padding: 40px; margin-top: 60px; text-align: left; }
-  input, textarea { padding: 14px 20px; border-radius: 12px; border: 1px solid #ddd; width: 100%; max-width: 400px; margin-top: 15px; font-family: 'Satoshi', sans-serif; }
+  .project-card { text-decoration: none; display: block; border: 1px solid var(--border); border-radius: 16px; padding: 24px; background: #FBFBF9; transition: 0.3s; text-align: left; }
+  .project-card:hover { border-color: var(--text); transform: translateY(-4px); background: white; box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
+  .project-card h3 { color: var(--text); margin-bottom: 8px; font-family: 'Syne', sans-serif; font-weight: 700; }
+  .project-card p { color: var(--muted); font-size: 14px; }
+  #services { padding: 60px 24px; background: var(--bg); }
+  .bento { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; max-width: 1100px; margin: 35px auto 0 auto; }
+  .bento-card { background: var(--card); padding: 28px 24px; border-radius: 20px; text-align: left; border: 1px solid var(--border); }
+  #about { background: var(--card); border-radius: 24px; padding: 40px; margin-top: 60px; text-align: left; border: 1px solid var(--border); }
+  input, textarea { padding: 14px 20px; border-radius: 12px; border: 1px solid var(--border); width: 100%; max-width: 400px; margin-top: 15px; font-family: 'Satoshi', sans-serif; background: #FBFBF9; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="hero">
-    <h1>Hi, I'm <span>Anand</span><br>Websites that get customers.</h1>
-    <p>I build fast and simple websites for small businesses without WordPress. No bloat, just results.</p>
-    <a href="#projects" class="hero-btn">My Work →</a>
+    <h1>Websites that<br>get customers.</h1>
+    <p>Hi, I'm Anand. I build fast, simple websites for small businesses without WordPress. No bloat, just results.</p>
+    <a href="#projects" class="hero-btn">See My Work →</a>
   </div>
-
   <div id="projects">
     <h2>Selected Work</h2>
     <div class="project-grid">
-      <a href="barber.html" class="project-card">
-        <h3>Barber Shop Website</h3>
-        <p>Booking website for local barber shop with WhatsApp booking.</p>
-        <span class="project-tag">Live Project</span>
-      </a>
-      <a href="cafe.html" class="project-card">
-        <h3>Cafe Landing Page</h3>
-        <p>Fast landing page for a cafe in Gurugram — 98 PageSpeed score.</p>
-        <span class="project-tag">Landing Page</span>
-      </a>
+      <a href="./cafe.html" class="project-card"><h3>Cafe Landing Page</h3><p>Fast landing for a cafe in Gurugram — 98 PageSpeed.</p></a>
+      <a href="./barber.html" class="project-card"><h3>Barber Shop Website</h3><p>Booking website with direct WhatsApp booking.</p></a>
+      <div class="project-card" style="opacity:0.5;"><h3>W3 — Bento Portfolio 🔒</h3><p>Coming next week.</p></div>
+      <div class="project-card" style="opacity:0.5;"><h3>W4 — Brutalist Shop 🔒</h3><p>Coming soon.</p></div>
     </div>
   </div>
-
   <div id="about">
-    <h2 style="color:#111; font-family: 'Syne', sans-serif;">About Me</h2>
-    <p style="color:#555; margin-top: 8px;">I build fast custom websites without WordPress. Let's talk.</p>
+    <h2 style="font-family: 'Syne', sans-serif; color:#111;">Let's build yours</h2>
+    <p style="color:#6B6B6B; margin-top: 8px;">2-day delivery. WhatsApp booking included.</p>
     <form id="contact-form" style="margin-top: 20px;">
       <input name="name" type="text" placeholder="Your Name" required maxlength="50" /><br>
       <input name="email" type="email" placeholder="Enter your email" required maxlength="100" /><br>
       <textarea name="message" placeholder="Your message" required maxlength="300"></textarea><br><br>
-      <button type="submit" style="background:#111; color:white; padding:12px 30px; border-radius:100px; border:none; font-weight:bold; cursor:pointer;">Submit</button>
+      <button type="submit" style="background:#111; color:white; padding:12px 30px; border-radius:100px; border:none; font-weight:bold; cursor:pointer;">Send Message</button>
     </form>
   </div>
 </div>
-
 <section id="services">
-  <div style="max-width: 1100px; margin: 0 auto; text-align: left;">
-    <h2>What You Will Get</h2>
-    <p style="color: #666; margin-top: 8px;">Perfect for local businesses that want to look professional online</p>
-  </div>
+  <div style="max-width: 1100px; margin: 0 auto; text-align: left;"><h2 style="font-family:'Syne',sans-serif;">What You Will Get</h2><p style="color:#6B6B6B; margin-top:8px;">Perfect for local businesses that want to look professional online</p></div>
   <div class="bento">
-    <div class="bento-card"><div style="font-size:28px;">⚡</div><h3 style="color:#111; margin:12px 0 8px 0;">Fast & Modern Design</h3><p style="color:#666; font-size:14px; line-height:1.6;">Delivered in 2 days. Super fast loading on mobile and desktop.</p></div>
-    <div class="bento-card"><div style="font-size:28px;">💬</div><h3 style="color:#111; margin:12px 0 8px 0;">Direct WhatsApp Booking</h3><p style="color:#666; font-size:14px; line-height:1.6;">Customers can contact and book directly via WhatsApp with one click.</p></div>
-    <div class="bento-card"><div style="font-size:28px;">📍</div><h3 style="color:#111; margin:12px 0 8px 0;">Google Business Ready</h3><p style="color:#666; font-size:14px; line-height:1.6;">Ready for Google Search and Maps to bring more local customers.</p></div>
+    <div class="bento-card"><div style="font-size:28px;">⚡</div><h3 style="margin:12px 0 8px 0;">Fast & Modern</h3><p style="color:#6B6B6B; font-size:14px;">Delivered in 2 days. Super fast on mobile.</p></div>
+    <div class="bento-card"><div style="font-size:28px;">💬</div><h3 style="margin:12px 0 8px 0;">WhatsApp Booking</h3><p style="color:#6B6B6B; font-size:14px;">One-click direct booking from website.</p></div>
+    <div class="bento-card"><div style="font-size:28px;">📍</div><h3 style="margin:12px 0 8px 0;">Google Ready</h3><p style="color:#6B6B6B; font-size:14px;">Ready for Search and Maps.</p></div>
   </div>
 </section>
-
 <script>
 const scriptURL = 'https://script.google.com/macros/s/AKfycbzxwVr9MROGJTJpDqW2jXESkHL3AS7EkPMmYkcIzRem60sRvWtJ1myPQ3JJ2py2chKR0w/exec';
 const form = document.getElementById('contact-form');
 form.addEventListener('submit', e => {
-  e.preventDefault();
-  const btn = form.querySelector('button');
-  btn.innerText = 'Sending...';
-  const formData = new FormData(form);
-  formData.append("secret", "anand2026_secure");
-  fetch(scriptURL, { method: 'POST', body: formData})
-    .then(() => { alert("Thanks! Message sent."); form.reset(); btn.innerText = 'Submit'; })
-    .catch(error => { alert("Error! " + error.message); btn.innerText = 'Submit'; });
+  e.preventDefault(); const btn = form.querySelector('button'); btn.innerText = 'Sending...';
+  const formData = new FormData(form); formData.append("secret", "anand2026_secure");
+  fetch(scriptURL, { method: 'POST', body: formData}).then(() => { alert("Thanks! Message sent."); form.reset(); btn.innerText = 'Send Message'; })
+  .catch(error => { alert("Error! " + error.message); btn.innerText = 'Send Message'; });
 });
 </script>
 </body>
-  </html>
+</html>
