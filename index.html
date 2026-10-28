@@ -1,67 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anand | Websites for Small Business</title>
+<title>Anand | Websites for Small Business — W2 Swiss Landing V1</title>
 <link rel="icon" type="image/png" href="/logo.png">
-<meta name="description" content="I build fast and simple websites for small businesses without WordPress.">
-<link href="https://api.fontshare.com/v2/css?f[]=syne@600,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<!-- SEO + OG — W13 ke liye base ready -->
+<meta name="description" content="I build fast and simple websites for small businesses without WordPress — W2 Swiss Landing V1">
+<meta property="og:title" content="Anand | Websites for Small Business — W2 Swiss Landing V1">
+<meta property="og:description" content="Fast, simple websites for small businesses — No WordPress, No bloat, Just results — W2: Swiss Landing V1 (day8-hero)">
+<meta property="og:image" content="/og-image.png">
+<meta property="og:type" content="website">
+<!-- Font Flexible — Satoshi only — Syne removed to avoid cut bug — Option A Locked -->
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 <style>
-  :root { --bg: #FAF9F6; --text: #111111; --muted: #6B6B6B; --border: #E8E8E8; --card: #FFFFFF; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Satoshi', sans-serif; }
+  :root { --bg: #FAF9F6; --text: #111111; --muted: #6B6B6B; --border: #E8E8E8; --card: #FFFFFF; --accent: #FF3B30; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Satoshi', sans-serif; -webkit-font-smoothing: antialiased; }
+  
+  /* Swiss 12-col grid system — W2 criteria */
   .container { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
-  .hero { text-align: left; padding: 80px 0 50px 0; }
-  .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(44px, 8vw, 72px); font-weight: 800; line-height: 1.05; letter-spacing: -2.5px; color: var(--text); padding-bottom: 8px; }
-  .hero p { color: var(--muted); font-size: 18px; max-width: 520px; margin-top: 20px; line-height: 1.6; }
-  .hero-btn { display: inline-block; margin-top: 30px; background: var(--text); color: white; padding: 14px 32px; border-radius: 100px; font-weight: 700; text-decoration: none; }
+  .swiss-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+  .col-12 { grid-column: span 12; }
+  .col-6 { grid-column: span 6; }
+  .col-4 { grid-column: span 4; }
+  @media(max-width: 768px){ .col-6, .col-4 { grid-column: span 12; } }
+  .hero { text-align: left; padding: 80px 0 80px 0; }
+  .hero-badge { display:inline-block; border:2px solid var(--text); padding:6px 12px; font-size:10px; font-weight:700; letter-spacing:2px; margin-bottom:16px; }
+  .hero h1 { font-family: 'Satoshi', sans-serif; font-size: clamp(42px, 6vw, 68px); font-weight: 700; line-height: .95; letter-spacing: -2.5px; color: var(--text); }
+  .hero p { color: var(--muted); font-size: 18px; max-width: 520px; margin-top: 16px; line-height: 1.6; }
+  .hero-btn { display: inline-block; margin-top: 30px; background: var(--text); color: white; padding: 14px 32px; border-radius: 100px; font-weight: 700; text-decoration: none; transition: 0.2s; }
+  .hero-btn:hover { background: var(--accent); transform: translateY(-2px); }
   #projects { background: var(--card); border-radius: 24px; border: 1px solid var(--border); padding: 40px; margin-top: 60px; }
-  #projects h2 { font-family: 'Syne', sans-serif; font-size: 32px; margin-bottom: 25px; }
+  #projects h2 { font-family: 'Satoshi', sans-serif; font-size: 32px; margin-bottom: 6px; }
+  #projects .sub { color: var(--muted); font-size: 13px; margin-bottom: 25px; letter-spacing:1px; }
   .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
   .project-card { text-decoration: none; display: block; border: 1px solid var(--border); border-radius: 16px; padding: 24px; background: #FBFBF9; transition: 0.3s; text-align: left; }
   .project-card:hover { border-color: var(--text); transform: translateY(-4px); background: white; box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
-  .project-card h3 { color: var(--text); margin-bottom: 8px; font-family: 'Syne', sans-serif; font-weight: 700; }
+  .project-card h3 { color: var(--text); margin-bottom: 8px; font-family: 'Satoshi', sans-serif; font-weight: 700; }
   .project-card p { color: var(--muted); font-size: 14px; }
-  #services { padding: 60px 24px; background: var(--bg); }
-  .bento { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; max-width: 1100px; margin: 35px auto 0 auto; }
-  .bento-card { background: var(--card); padding: 28px 24px; border-radius: 20px; text-align: left; border: 1px solid var(--border); }
+  .project-card.locked { opacity: 0.6; }
   #about { background: var(--card); border-radius: 24px; padding: 40px; margin-top: 60px; text-align: left; border: 1px solid var(--border); }
   input, textarea { padding: 14px 20px; border-radius: 12px; border: 1px solid var(--border); width: 100%; max-width: 400px; margin-top: 15px; font-family: 'Satoshi', sans-serif; background: #FBFBF9; }
+  input:focus, textarea:focus { outline:none; border-color: var(--text); background:white; }
+  #services { padding: 60px 24px; background: var(--bg); }
+  .bento { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; max-width: 1100px; margin: 35px auto 0 auto; }
+  .bento-card { background: var(--card); padding: 28px 24px; border-radius: 20px; text-align: left; border: 1px solid var(--border); transition:0.2s; }
+  .bento-card:hover { border-color: var(--text); transform: translateY(-2px); }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="hero">
+    <div class="hero-badge" style="display:none;">W2 — SWISS LANDING V1</div>
     <h1>Websites that<br>get customers.</h1>
-    <p>Hi, I'm Anand. I build fast, simple websites for small businesses without WordPress. No bloat, just results.</p>
+    <p>Hi, I'm Anand. I build fast, simple websites for small businesses without WordPress. No bloat, just results. This is W2 V1 — base version, W16 will be V2 with FastAPI + WhatsApp + AI.</p>
     <a href="#projects" class="hero-btn">See My Work →</a>
   </div>
   <div id="projects">
     <h2>Selected Work</h2>
+    <p class="sub">SWISS GRID — FONT FLEXIBLE — BLACK/WHITE + 1 ACCENT #FF3B30</p>
     <div class="project-grid">
-      <a href="./cafe.html" class="project-card"><h3>Cafe Landing Page</h3><p>Fast landing for a cafe in Gurugram — 98 PageSpeed.</p></a>
+      <a href="./cafe.html" class="project-card"><h3>Cafe Landing Page</h3><p>Fast landing for a cafe in Gurugram — 98 PageSpeed. — W1 Claymorphism reference</p></a>
       <a href="./barber.html" class="project-card"><h3>Barber Shop Website</h3><p>Booking website with direct WhatsApp booking.</p></a>
-      <div class="project-card" style="opacity:0.5;"><h3>W3 — Bento Portfolio 🔒</h3><p>Coming next week.</p></div>
-      <div class="project-card" style="opacity:0.5;"><h3>W4 — Brutalist Shop 🔒</h3><p>Coming soon.</p></div>
+      <div class="project-card locked"><h3>W3 — Glassmorphism + Responsive 🔒</h3><p>Next week — backdrop-blur + Tailwind + Flex/Grid mastery</p></div>
+      <div class="project-card locked"><h3>W4 — Neumorphism + JS Fundamentals 🔒</h3><p>Coming soon — soft shadows + Calculator logic</p></div>
     </div>
   </div>
   <div id="about">
-    <h2 style="font-family: 'Syne', sans-serif; color:#111;">Let's build yours</h2>
-    <p style="color:#6B6B6B; margin-top: 8px;">2-day delivery. WhatsApp booking included.</p>
+    <h2 style="font-family: 'Satoshi', sans-serif; color:#111;">Let's build yours</h2>
+    <p style="color:#6B6B6B; margin-top: 8px;">2-day delivery. WhatsApp booking included. — W2 V1 uses Google Sheet, W16 V2 will use FastAPI + WhatsApp Cloud API</p>
     <form id="contact-form" style="margin-top: 20px;">
-      <input name="name" type="text" placeholder="Your Name" required maxlength="50" /><br>
-      <input name="email" type="email" placeholder="Enter your email" required maxlength="100" /><br>
-      <textarea name="message" placeholder="Your message" required maxlength="300"></textarea><br><br>
+      <input name="name" type="text" placeholder="Your Name" required maxlength="50" aria-label="Your Name" /><br>
+      <input name="email" type="email" placeholder="Enter your email" required maxlength="100" aria-label="Email" /><br>
+      <textarea name="message" placeholder="Your message" required maxlength="300" aria-label="Message"></textarea><br><br>
       <button type="submit" style="background:#111; color:white; padding:12px 30px; border-radius:100px; border:none; font-weight:bold; cursor:pointer;">Send Message</button>
     </form>
   </div>
 </div>
 <section id="services">
-  <div style="max-width: 1100px; margin: 0 auto; text-align: left;"><h2 style="font-family:'Syne',sans-serif;">What You Will Get</h2><p style="color:#6B6B6B; margin-top:8px;">Perfect for local businesses that want to look professional online</p></div>
+  <div style="max-width: 1100px; margin: 0 auto; text-align: left;">
+    <h2 style="font-family:'Satoshi',sans-serif; font-weight:700;">What You Will Get</h2>
+    <p style="color:#6B6B6B; margin-top:8px;">Perfect for local businesses that want to look professional online — Swiss Design System</p>
+  </div>
   <div class="bento">
-    <div class="bento-card"><div style="font-size:28px;">⚡</div><h3 style="margin:12px 0 8px 0;">Fast & Modern</h3><p style="color:#6B6B6B; font-size:14px;">Delivered in 2 days. Super fast on mobile.</p></div>
-    <div class="bento-card"><div style="font-size:28px;">💬</div><h3 style="margin:12px 0 8px 0;">WhatsApp Booking</h3><p style="color:#6B6B6B; font-size:14px;">One-click direct booking from website.</p></div>
-    <div class="bento-card"><div style="font-size:28px;">📍</div><h3 style="margin:12px 0 8px 0;">Google Ready</h3><p style="color:#6B6B6B; font-size:14px;">Ready for Search and Maps.</p></div>
+    <div class="bento-card"><div style="font-size:28px;">⚡</div><h3 style="margin:12px 0 8px 0;">Fast & Modern</h3><p style="color:#6B6B6B; font-size:14px;">Delivered in 2 days. Super fast on mobile. — W2 criteria</p></div>
+    <div class="bento-card"><div style="font-size:28px;">💬</div><h3 style="margin:12px 0 8px 0;">WhatsApp Booking</h3><p style="color:#6B6B6B; font-size:14px;">One-click direct booking from website. — V1 Google Sheet, V2 FastAPI</p></div>
+    <div class="bento-card"><div style="font-size:28px;">📍</div><h3 style="margin:12px 0 8px 0;">Google Ready</h3><p style="color:#6B6B6B; font-size:14px;">Ready for Search and Maps. — W13 SEO base ready</p></div>
   </div>
 </section>
 <script>
@@ -69,8 +94,9 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbzxwVr9MROGJTJpDqW2jX
 const form = document.getElementById('contact-form');
 form.addEventListener('submit', e => {
   e.preventDefault(); const btn = form.querySelector('button'); btn.innerText = 'Sending...';
-  const formData = new FormData(form); formData.append("secret", "anand2026_secure");
-  fetch(scriptURL, { method: 'POST', body: formData}).then(() => { alert("Thanks! Message sent."); form.reset(); btn.innerText = 'Send Message'; })
+  const formData = new FormData(form);
+  // Security fix: secret removed from client side — Option A Locked — handle in Apps Script if needed without exposing
+  fetch(scriptURL, { method: 'POST', body: formData}).then(() => { alert("Thanks! Message sent. — W2 V1"); form.reset(); btn.innerText = 'Send Message'; })
   .catch(error => { alert("Error! " + error.message); btn.innerText = 'Send Message'; });
 });
 </script>
